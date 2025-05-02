@@ -20,7 +20,7 @@ export default function MyInput({
           type={type}
           id={`${label}-id`}
           placeholder={placeholder}
-          className="border-2 border-green-1"
+          className="border-2 border-green-1 focus-visible:border-green-1 focus-visible:ring-green-1/50"
         />
       </div>
     </>
