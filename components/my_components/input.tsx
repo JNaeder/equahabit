@@ -18,6 +18,7 @@ export default function MyInput({
         </Label>
         <Input
           type={type}
+          name={label}
           id={`${label}-id`}
           placeholder={placeholder}
           className="border-2 border-green-1 focus-visible:border-green-1 focus-visible:ring-green-1/50"
