@@ -2,10 +2,19 @@ import MyInput from "@/components/my_components/input";
 import { Button } from "@/components/ui/button";
 import Form from "next/form";
 import { signIn } from "@/auth";
+import { useSession } from "next-auth/react";
 
 async function handleSubmit(formData: FormData) {
   "use server";
-  await signIn("credentials", formData);
+  try {
+    const userData = Object.fromEntries(formData);
+    await signIn("credentials", {
+      ...userData,
+      redirect: false,
+    });
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export default function Home() {
