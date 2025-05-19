@@ -13,9 +13,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         let user = {
           id: "1",
           email: credentials.email as string,
+          tesingThing: "Hello",
         };
 
-        console.log(user);
         return user;
       },
     }),

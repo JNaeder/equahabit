@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
+import { SessionProvider } from "next-auth/react";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -18,8 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={` ${sora.className} antialiased`}>{children}</body>
-    </html>
+    <SessionProvider>
+      <html lang="en">
+        <body className={` ${sora.className} antialiased`}>{children}</body>
+      </html>
+    </SessionProvider>
   );
 }

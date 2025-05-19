@@ -1,4 +1,8 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import LoginTest from "./LoginTest";
+import { signOut } from "@/auth";
 
 export default function Home() {
   return (
@@ -8,12 +12,18 @@ export default function Home() {
           <img src="equahabit_logo_1.svg" width={60} />
           <h1 className="text-7xl text-green-1 font-bold">Equahabit</h1>
         </div>
-        <p>You Are Currently Not Logged In</p>
+        <LoginTest />
         <a href="/login" className="w-50">
           <Button className="bg-green-1 w-full text-xl hover:bg-green-800">
             Log In
           </Button>
         </a>
+        <Button
+          className="bg-green-1 w-full text-xl hover:bg-green-800"
+          onClick={() => signOut()}
+        >
+          Log out
+        </Button>
       </div>
     </>
   );
