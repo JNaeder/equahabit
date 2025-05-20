@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Sora } from "next/font/google";
+import { Sedan, Sora } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -13,16 +14,17 @@ export const metadata: Metadata = {
   description: "Equahabit",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
   return (
-    <SessionProvider>
-      <html lang="en">
+    <html lang="en">
+      <SessionProvider session={session}>
         <body className={` ${sora.className} antialiased`}>{children}</body>
-      </html>
-    </SessionProvider>
+      </SessionProvider>
+    </html>
   );
 }
