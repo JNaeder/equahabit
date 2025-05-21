@@ -49,6 +49,12 @@ export default function Home() {
                 Log In
               </Button>
             </form>
+            <Button
+              className="bg-off-white-2 text-black border-2 border-green-1 text-xl w-3/4 hover:bg-accent mt-4"
+              onClick={() => console.log("Google!")}
+            >
+              Sign In With Google
+            </Button>
           </div>
         </div>
       </div>

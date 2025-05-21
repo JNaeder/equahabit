@@ -3,6 +3,7 @@ import { Sedan, Sora } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -20,6 +21,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
+
+  // if (!session?.user) {
+  //   redirect("/login");
+  // }
+
   return (
     <html lang="en">
       <SessionProvider session={session}>
