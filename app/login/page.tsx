@@ -27,7 +27,7 @@ export default function Home() {
       console.error("ERROR", result.error);
     }
 
-    router.push("/");
+    router.push("/home");
   }
   return (
     <>
